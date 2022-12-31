@@ -1,0 +1,17 @@
+[features]
+seeds = false
+
+[programs.devnet]
+token_metadata_descriptor = "DesCwDwfrbxTDSjAm5Xjqh9Cij5Ucb46F6qH7cwieXB"
+
+[registry]
+url = "https://anchor.projectserum.com"
+
+[provider]
+cluster = "devnet"
+wallet = "~/.config/solana/id.json"
+
+[workspace]
+members = [
+  "program"
+]

@@ -1,0 +1,550 @@
+{
+  "version": "0.0.1",
+  "name": "token_metadata_descriptor",
+  "constants": [
+    {
+      "name": "DESCRIPTOR",
+      "type": {
+        "defined": "&[u8]"
+      },
+      "value": "b\"descriptor\""
+    }
+  ],
+  "instructions": [
+    {
+      "name": "initialize",
+      "accounts": [
+        {
+          "name": "payer",
+          "isMut": true,
+          "isSigner": true,
+          "docs": [
+            "entity that funds transaction"
+          ]
+        },
+        {
+          "name": "authority",
+          "isMut": false,
+          "isSigner": true,
+          "docs": [
+            "descriptor authority, same as metadata update authority"
+          ]
+        },
+        {
+          "name": "descriptor",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "mint",
+          "isMut": false,
+          "isSigner": false,
+          "docs": [
+            "mint associated with the descriptor"
+          ]
+        },
+        {
+          "name": "tokenMetadata",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "tokenMetadataProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "dataSize",
+          "type": "u64"
+        },
+        {
+          "name": "encoding",
+          "type": {
+            "defined": "Encoding"
+          }
+        },
+        {
+          "name": "bump",
+          "type": "u8"
+        }
+      ]
+    },
+    {
+      "name": "resize",
+      "accounts": [
+        {
+          "name": "payer",
+          "isMut": true,
+          "isSigner": true,
+          "docs": [
+            "entity that funds transaction"
+          ]
+        },
+        {
+          "name": "authority",
+          "isMut": false,
+          "isSigner": true,
+          "docs": [
+            "descriptor authority, same as metadata update authority"
+          ]
+        },
+        {
+          "name": "descriptor",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "mint",
+          "isMut": false,
+          "isSigner": false,
+          "docs": [
+            "mint associated with the descriptor"
+          ]
+        },
+        {
+          "name": "tokenMetadata",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "tokenMetadataProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "newSize",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "copy",
+      "accounts": [
+        {
+          "name": "payer",
+          "isMut": true,
+          "isSigner": true,
+          "docs": [
+            "entity that funds transaction"
+          ]
+        },
+        {
+          "name": "authority",
+          "isMut": false,
+          "isSigner": true,
+          "docs": [
+            "descriptor authority, same as metadata update authority"
+          ]
+        },
+        {
+          "name": "buffer",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "descriptor",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "mint",
+          "isMut": false,
+          "isSigner": false,
+          "docs": [
+            "mint associated with the descriptor"
+          ]
+        },
+        {
+          "name": "tokenMetadata",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "tokenMetadataProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "bufferRange",
+          "type": {
+            "defined": "Range"
+          }
+        },
+        {
+          "name": "descriptorStartRange",
+          "type": "u64"
+        },
+        {
+          "name": "encoding",
+          "type": {
+            "defined": "Encoding"
+          }
+        }
+      ]
+    },
+    {
+      "name": "close",
+      "accounts": [
+        {
+          "name": "payer",
+          "isMut": true,
+          "isSigner": true,
+          "docs": [
+            "entity that funds transaction"
+          ]
+        },
+        {
+          "name": "authority",
+          "isMut": false,
+          "isSigner": true,
+          "docs": [
+            "descriptor authority, same as metadata update authority"
+          ]
+        },
+        {
+          "name": "destination",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "descriptor",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "mint",
+          "isMut": false,
+          "isSigner": false,
+          "docs": [
+            "mint associated with the descriptor"
+          ]
+        },
+        {
+          "name": "tokenMetadata",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "tokenMetadataProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "initializeWithBuffer",
+      "docs": [
+        "Combination of `initialize` and `copy` in one instruction"
+      ],
+      "accounts": [
+        {
+          "name": "payer",
+          "isMut": true,
+          "isSigner": true,
+          "docs": [
+            "entity that funds transaction"
+          ]
+        },
+        {
+          "name": "authority",
+          "isMut": false,
+          "isSigner": true,
+          "docs": [
+            "descriptor authority, same as metadata update authority"
+          ]
+        },
+        {
+          "name": "descriptor",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "mint",
+          "isMut": false,
+          "isSigner": false,
+          "docs": [
+            "mint associated with the descriptor"
+          ]
+        },
+        {
+          "name": "buffer",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "tokenMetadata",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "tokenMetadataProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "range",
+          "type": {
+            "option": {
+              "defined": "Range"
+            }
+          }
+        },
+        {
+          "name": "encoding",
+          "type": {
+            "defined": "Encoding"
+          }
+        },
+        {
+          "name": "bump",
+          "type": "u8"
+        }
+      ]
+    },
+    {
+      "name": "initializeWithData",
+      "docs": [
+        "Special version of `initialize` with data passed in directly as the MTU",
+        "upper bound (1280 bytes) is observed. This can be used to avoid the overhead",
+        "of building multiple instructions and or dealing with an intermediary buffer."
+      ],
+      "accounts": [
+        {
+          "name": "payer",
+          "isMut": true,
+          "isSigner": true,
+          "docs": [
+            "entity that funds transaction"
+          ]
+        },
+        {
+          "name": "authority",
+          "isMut": false,
+          "isSigner": true,
+          "docs": [
+            "descriptor authority, same as metadata update authority"
+          ]
+        },
+        {
+          "name": "descriptor",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "mint",
+          "isMut": false,
+          "isSigner": false,
+          "docs": [
+            "mint associated with the descriptor"
+          ]
+        },
+        {
+          "name": "tokenMetadata",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "tokenMetadataProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "encoding",
+          "type": {
+            "defined": "Encoding"
+          }
+        },
+        {
+          "name": "bump",
+          "type": "u8"
+        },
+        {
+          "name": "data",
+          "type": "bytes"
+        }
+      ]
+    }
+  ],
+  "types": [
+    {
+      "name": "Descriptor",
+      "docs": [
+        "Since the descriptor is dynamic and not known until runtime, we cannot allocate a fixed",
+        "amount of space. Thus, beyond the attributes of this struct, we will assume all data is",
+        "of the specified encoding. Clients should be provided sufficient tooling to perform read",
+        "operations on these accounts.",
+        "",
+        "The descriptor authority is same as metadata authority in this implementation. We do not",
+        "serialize here so that there is only 1 source of truth - the metadata account. This can",
+        "be extended/changed in various implementations depending on requirements."
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "discriminator",
+            "docs": [
+              "Discriminator"
+            ],
+            "type": {
+              "array": [
+                "u8",
+                8
+              ]
+            }
+          },
+          {
+            "name": "bump",
+            "docs": [
+              "PDA bump"
+            ],
+            "type": "u8"
+          },
+          {
+            "name": "mint",
+            "docs": [
+              "Associated mint pubkey"
+            ],
+            "type": "publicKey"
+          },
+          {
+            "name": "encoding",
+            "docs": [
+              "Data encoding"
+            ],
+            "type": {
+              "defined": "Encoding"
+            }
+          },
+          {
+            "name": "dataLen",
+            "docs": [
+              "Data length"
+            ],
+            "type": "u32"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Range",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "start",
+            "type": "u64"
+          },
+          {
+            "name": "end",
+            "type": "u64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Encoding",
+      "type": {
+        "kind": "enum",
+        "variants": [
+          {
+            "name": "None"
+          },
+          {
+            "name": "Utf8"
+          },
+          {
+            "name": "Base64"
+          },
+          {
+            "name": "Custom"
+          }
+        ]
+      }
+    }
+  ],
+  "errors": [
+    {
+      "code": 6000,
+      "name": "IncorrectAuthority",
+      "msg": "Authority is not allowed to perform such action"
+    },
+    {
+      "code": 6001,
+      "name": "Initialized",
+      "msg": "Account already initialized"
+    },
+    {
+      "code": 6002,
+      "name": "Uninitialized",
+      "msg": "Account is not initialized"
+    },
+    {
+      "code": 6003,
+      "name": "MintMismatch",
+      "msg": "Mint Mismatch"
+    },
+    {
+      "code": 6004,
+      "name": "IncorrectSeeds",
+      "msg": "Incorrect seeds"
+    },
+    {
+      "code": 6005,
+      "name": "AccountTooLarge",
+      "msg": "Target account exceeds limit"
+    },
+    {
+      "code": 6006,
+      "name": "InvalidRange",
+      "msg": "Invalid range"
+    },
+    {
+      "code": 6007,
+      "name": "MathError",
+      "msg": "Math error"
+    },
+    {
+      "code": 6008,
+      "name": "InsufficientBalance",
+      "msg": "Insufficient balance"
+    }
+  ],
+  "metadata": {
+    "address": "DesCwDwfrbxTDSjAm5Xjqh9Cij5Ucb46F6qH7cwieXB",
+    "origin": "anchor",
+    "binaryVersion": "0.25.0",
+    "libVersion": "0.25.0"
+  }
+}

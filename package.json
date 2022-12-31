@@ -1,0 +1,27 @@
+{
+  "scripts": {
+    "setup": "./scripts/setup.sh",
+    "amman:start": "DEBUG='amman:(info|error)' amman start",
+    "amman:stop": "amman stop",
+    "build": "./scripts/build.sh",
+    "api:gen": "cd sdk && yarn api:gen && cd ..",
+    "full:build": "yarn build && yarn api:gen",
+    "mkdir:binaries": "shx mkdir -p local-binaries",
+    "cp:binaries": "yarn mkdir:binaries && shx cp -r target/deploy/*.so local-binaries",
+    "test": "cd sdk && yarn && yarn build && yarn test && cd .."
+  },
+  "dependencies": {
+    "@metaplex-foundation/beet": "^0.6.1",
+    "@metaplex-foundation/beet-solana": "^0.3.1",
+    "@metaplex-foundation/cusper": "^0.0.2",
+    "@solana/spl-token": "^0.3.5",
+    "@solana/web3.js": "^1.56.2",
+    "bn.js": "^5.2.0",
+    "shx": "^0.3.4"
+  },
+  "devDependencies": {
+    "@metaplex-foundation/amman": "^0.12.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0"
+  }
+}

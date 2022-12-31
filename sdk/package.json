@@ -1,0 +1,56 @@
+{
+  "name": "token-metadata-descriptor",
+  "version": "1.0.0",
+  "program": "0.0.1",
+  "description": "Token Metadata Descriptor SDK",
+  "main": "dist/src/index.js",
+  "types": "dist/src/index.d.js",
+  "scripts": {
+    "build": "rimraf dist && tsc -p tsconfig.json",
+    "api:gen": "DEBUG='(solita|rustbin):(info|error)' solita",
+    "test": "tape dist/test/*.test.js"
+  },
+  "files": [
+    "/dist/src"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "keywords": [
+    "nft",
+    "metaplex",
+    "solana",
+    "blockchain",
+    "metadata"
+  ],
+  "repository": "https://github.com/sooshisan/token-metadata-descriptor.git",
+  "author": "sooshisan <sooshisan@pm.me>",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "@metaplex-foundation/beet": "^0.6.1",
+    "@metaplex-foundation/beet-solana": "^0.3.1",
+    "@metaplex-foundation/cusper": "^0.0.2",
+    "@metaplex-foundation/js": "^0.17.5",
+    "@solana/spl-token": "^0.3.5",
+    "@solana/web3.js": "^1.56.2",
+    "@types/bn.js": "^5.1.1",
+    "@types/tape": "^4.13.2",
+    "bn.js": "^5.2.0",
+    "bs58": "^5.0.0"
+  },
+  "devDependencies": {
+    "@metaplex-foundation/solita": "^0.15.2",
+    "@sooshisan/solana-add-data-to-buffer": "0.0.1",
+    "@typescript-eslint/eslint-plugin": "^5.4.0",
+    "@typescript-eslint/parser": "^5.4.0",
+    "eslint": "^8.3.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "prettier": "^2.5.1",
+    "rimraf": "^3.0.2",
+    "spok": "^1.4.3",
+    "tape": "^5.6.1",
+    "typescript": "^4.6.2"
+  }
+}
